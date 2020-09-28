@@ -18,7 +18,7 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <% if blog.image %>
+        <% if blog.image.url %>
           <td><%= image_tag blog.image.url %></td>
         <% end %>
         <td><%= blog.user.name %></td>

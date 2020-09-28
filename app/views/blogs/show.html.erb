@@ -10,7 +10,7 @@
   <%= @blog.content %>
 </p>
 
-<% if @blog.image %>
+<% if @blog.image.url %>
   <p>
     <strong>Image:</strong>
     <%= image_tag @blog.image.url %>
