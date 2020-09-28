@@ -10,10 +10,12 @@
   <%= @blog.content %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @blog.image.url %>
-</p>
+<% if @blog.image %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @blog.image.url %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>

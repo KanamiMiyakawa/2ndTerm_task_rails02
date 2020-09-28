@@ -18,7 +18,9 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= image_tag blog.image.url %></td>
+        <% if blog.image %>
+          <td><%= image_tag blog.image.url %></td>
+        <% end %>
         <td><%= blog.user.name %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
