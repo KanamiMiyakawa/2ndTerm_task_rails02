@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user, only: [:index, :show, :new, :edit]
   def index
     @blogs = Blog.all.order("id DESC")
   end
