@@ -1,8 +1,38 @@
-<p id="notice"><%= notice %></p>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
 
-<h1>Blogs</h1>
+        <% if notice %>
+          <div class="blog_box main_notice">
+            <p id="notice"><%= notice %></p>
+          </div>
+        <% end %>
 
-<table>
+        <div class="blog_box">
+          <p>新規作成</p>
+          <p>する</p>
+        </div>
+
+        <% @blogs.each do |blog| %>
+          <div class="blog_box">
+            <p class="blog_title"><%= blog.title %></p>
+            <% if blog.image.url %>
+              <%= image_tag blog.image.url %>
+            <% end %>
+            <p class="blog_content"><%= blog.content %></p>
+            <p class="blog_user_name"><%= blog.user.name %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Title</th>
@@ -32,4 +62,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path %> -->
