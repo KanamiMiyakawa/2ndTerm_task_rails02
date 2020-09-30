@@ -1,22 +1,54 @@
-<h1>Sign up</h1>
-<%= form_with(model: @user, local: true) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="box_base">
+
+          <h1 class="signup_header">Sign up</h1>
+          <%= form_with(model: @user, local: true) do |f| %>
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+                <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <table class="form_table">
+              <div class="field">
+                <tr>
+                  <th><%= f.label :name %></th>
+                  <td><%= f.text_field :name %></td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th><%= f.label :email %></th>
+                  <td><%= f.email_field :email %></td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th><%= f.label :password %></th>
+                  <td><%= f.password_field :password %></td>
+                </tr>
+              </div>
+              <div class="field">
+                <tr>
+                  <th><%= f.label :password_confirmation %></th>
+                  <td><%= f.password_field :password_confirmation %></td>
+                </tr>
+              </div>
+            </table>
+
+            <%= f.submit "Create my account!", class: "signup_button" %>
+          <% end %>
+
+        </div>
+      </div>
     </div>
-  <% end %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
-<% end %>
+  </div>
+</main>

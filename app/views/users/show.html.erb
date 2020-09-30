@@ -1,11 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="box_base">
+          <p class="user_show_name">
+            <strong>Name:</strong>
+            <%= @user.name %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+          <p class="user_show_email">
+            <strong>Email:</strong>
+            <%= @user.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
