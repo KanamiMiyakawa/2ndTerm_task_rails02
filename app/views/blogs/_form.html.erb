@@ -1,4 +1,4 @@
-<%= form_with(model: blog, local: true) do |form| %>
+<%= form_with(model: blog, local: true, url: choose_index_or_edit ) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
@@ -28,11 +28,11 @@
       <tr>
         <th><%= form.label :image %></th>
         <td><%= form.file_field :image %></td>
+        <%= form.hidden_field :image_cache %>
       </tr>
     </div>
   </table>
-
-    <div class="actions">
-      <%= form.submit "投稿する"%>
-    </div>
+  <div class="actions">
+    <%= form.submit "投稿する"%>
+  </div>
 <% end %>

@@ -13,15 +13,25 @@ class BlogsController < ApplicationController
     @blog = Blog.new
   end
 
+  def confirm
+    @blog = Blog.new(blog_params)
+    @blogs = Blog.all.order("id DESC")
+    render :index if @blog.invalid?
+  end
+
   def edit
   end
 
   def create
     @blog = current_user.blogs.build(blog_params)
-    if @blog.save
-      redirect_to @blog, notice: 'Blog was successfully created.'
+    if params[:back]
+      render :index
     else
-      render :new
+      if @blog.save
+        redirect_to @blog, notice: 'Blog was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
