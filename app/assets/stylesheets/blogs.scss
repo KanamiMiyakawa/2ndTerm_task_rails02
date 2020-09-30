@@ -128,6 +128,19 @@
 .show_edit {
   padding-right: 10px;
 }
+/*edit*/
+.edit_header {
+  padding-top: 30px;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+.edit_image_text {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.edit_back {
+  padding: 10px 0;
+}
 /*@media*/
 @media (max-width: 991px){
   .main_wrapper {
