@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <table class="form_table">
+    <div class="field">
+      <tr>
+        <th><%= form.label :title %></th>
+        <td><%= form.text_field :title %></td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :content %></th>
+        <td><%= form.text_area :content %></td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :image %></th>
+        <td><%= form.file_field :image %></td>
+      </tr>
+    </div>
+  </table>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit "投稿する"%>
+    </div>
 <% end %>
