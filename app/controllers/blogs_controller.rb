@@ -22,7 +22,6 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.order("id DESC")
     @blog = current_user.blogs.build(blog_params)
     if params[:back]
-      binding.irb
       render :index
     else
       if @blog.save

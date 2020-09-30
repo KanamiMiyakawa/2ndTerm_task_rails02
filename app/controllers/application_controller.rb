@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  def fobid_login_user
+    if current_user
+      flash[:notice] = "ログインしています"
+      redirect_to blogs_path
+    end
+  end
 end

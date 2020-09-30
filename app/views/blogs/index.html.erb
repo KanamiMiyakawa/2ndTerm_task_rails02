@@ -65,7 +65,7 @@
   </div>
 </main>
 
-<% if @blog.errors.any? %>
+<% if @blog.errors.any? || action_name == "create" %>
   <script>
     $('#modal1').modal();
   </script>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :fobid_login_user, only: [:new, :create]
 
   def new
     @user = User.new
