@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def fobid_login_user
     if current_user
-      flash[:notice] = "ログインしています"
+      flash[:notice] = "すでにログインしています"
       redirect_to blogs_path
     end
   end
