@@ -108,6 +108,19 @@
   line-height: 2rem;
   height: 8rem;
 }
+/*confirm*/
+.confirm_title {
+  padding: 20px 30px;
+}
+.confirm_content_box {
+  padding: 20px 60px;
+}
+.confirm_buttons {
+  padding-bottom: 30px;
+}
+.confirm_submit {
+  margin-right: 10px;
+}
 /*@media*/
 @media (max-width: 991px){
   .main_wrapper {

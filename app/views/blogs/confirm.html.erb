@@ -1,10 +1,28 @@
-<%= form_with(model: @blog, local: true) do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
-  <%= form.hidden_field :image_cache %>
-  <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
-  <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
-  <%= form.submit  "投稿する" %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="box_base">
+          <%= form_with(model: @blog, local: true) do |form| %>
+            <%= form.hidden_field :title %>
+            <%= form.hidden_field :content %>
+            <%= form.hidden_field :image_cache %>
+            <p class="blog_title confirm_title"><%= @blog.title %></p>
+            <% if @blog.image.url %>
+              <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+            <% end %>
+            <div class="blog_content_box confirm_content_box">
+              <p class="blog_content"><%= @blog.content %></p>
+            </div>
+            <div class="confirm_buttons">
+              <%= form.submit  "投稿する", class: 'confirm_submit' %>
+              <%= form.submit "戻る", name: 'back', class: 'confirm_back' %>
+            </div>
+          <% end %>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

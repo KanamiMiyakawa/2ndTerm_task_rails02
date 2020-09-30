@@ -9,12 +9,8 @@ class BlogsController < ApplicationController
   def show
   end
 
-  def new
-    @blog = Blog.new
-  end
-
   def confirm
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
     @blogs = Blog.all.order("id DESC")
     render :index if @blog.invalid?
   end
@@ -23,8 +19,10 @@ class BlogsController < ApplicationController
   end
 
   def create
+    @blogs = Blog.all.order("id DESC")
     @blog = current_user.blogs.build(blog_params)
     if params[:back]
+      binding.irb
       render :index
     else
       if @blog.save
