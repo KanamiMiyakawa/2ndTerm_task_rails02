@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
       render :index
     else
       if @blog.save
-        redirect_to @blog, notice: 'Blog was successfully created.'
+        redirect_to @blog, notice: '日記を投稿しました！'
       else
         render :new
       end
@@ -35,7 +35,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to @blog, notice: 'Blog was successfully updated.'
+      redirect_to @blog, notice: '日記を更新しました！'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_url, notice: 'Blog was successfully destroyed.'
+    redirect_to blogs_url, notice: '日記を削除しました！'
   end
 
   private
