@@ -101,6 +101,15 @@
 .edit_back {
   padding: 10px 0;
 }
+/*error*/
+#error_explanation h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+#error_explanation ul {
+  list-style: none;
+  color: red;
+}
 /*@media*/
 @media (max-width: 767px){
   .modal-dialog {
