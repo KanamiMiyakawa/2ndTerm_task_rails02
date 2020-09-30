@@ -1,21 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<% if @blog.image.url %>
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag @blog.image.url %>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="box_base">
+          <p class="blog_title confirm_title"><%= @blog.title %></p>
+          <% if @blog.image.url %>
+            <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
+          <% end %>
+          <div class="blog_content_box confirm_content_box">
+            <p class="blog_content"><%= @blog.content %></p>
+          </div>
+          <div class="show_buttons">
+            <% if @blog.user_id == current_user.id %>
+              <%= link_to '編集', edit_blog_path(@blog), class: "show_edit" %>
+            <% end %>
+            <%= link_to '戻る', blogs_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

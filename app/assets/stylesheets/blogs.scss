@@ -50,7 +50,7 @@
   font-size: 2rem;
   padding: 0 30px;
 }
-.blog_image {
+.box_base img {
   padding: 5px 10px;
   max-width: 100%;
 }
@@ -120,6 +120,13 @@
 }
 .confirm_submit {
   margin-right: 10px;
+}
+/*show*/
+.show_buttons {
+  padding-bottom: 20px;
+}
+.show_edit {
+  padding-right: 10px;
 }
 /*@media*/
 @media (max-width: 991px){
