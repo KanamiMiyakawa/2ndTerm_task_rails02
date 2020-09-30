@@ -4,24 +4,39 @@
       <div class="main_wrapper">
 
         <% if notice %>
-          <div class="blog_box main_notice">
+          <div class="box_base main_notice">
             <p id="notice"><%= notice %></p>
           </div>
         <% end %>
 
-        <div class="blog_box">
+        <div class="box_base">
           <p>新規作成</p>
           <p>する</p>
         </div>
 
         <% @blogs.each do |blog| %>
-          <div class="blog_box">
+          <div class="blog_box box_base">
+            <p class="blog_user_name"><%= blog.user.name %><span class="blog_date">   <%= l blog.created_at %></span></p>
             <p class="blog_title"><%= blog.title %></p>
             <% if blog.image.url %>
-              <%= image_tag blog.image.url %>
+              <%= image_tag blog.image.url , class: 'blog_image'%>
             <% end %>
-            <p class="blog_content"><%= blog.content %></p>
-            <p class="blog_user_name"><%= blog.user.name %></p>
+            <div class="blog_content_box">
+              <p class="blog_content"><%= blog.content %></p>
+            </div>
+            <ul class="blog_buttons_box">
+              <li class="blog_buttons">
+                <%= link_to "詳細", blog_path(blog.id) %>
+              </li>
+              <% if blog.user_id == current_user.id %>
+                <li class="blog_buttons">
+                  <%= link_to "編集", edit_blog_path(blog.id) %>
+                </li>
+                <li class="blog_buttons">
+                  <%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+                </li>
+              <% end %>
+            </ul>
           </div>
         <% end %>
       </div>
