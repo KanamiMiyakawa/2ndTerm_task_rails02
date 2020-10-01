@@ -4,10 +4,6 @@
       <div class="main_wrapper">
         <div class="box_base">
           <p class="edit_header">日記を編集する</p>
-          <% if @blog.image.url %>
-            <p class="edit_image_text">投稿されたイメージ:</p>
-            <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
-          <% end %>
 
           <%= render 'form', blog: @blog %>
 
