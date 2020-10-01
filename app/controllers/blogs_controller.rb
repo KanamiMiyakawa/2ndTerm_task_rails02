@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user, only: [:index, :show, :new, :edit]
   before_action :different_user, only: [:edit, :update, :destroy]
-  
+
   def index
     @blogs = Blog.all.order("id DESC")
     @blog = Blog.new
@@ -60,7 +60,7 @@ class BlogsController < ApplicationController
 
   def different_user
     @blog = Blog.find(params[:id])
-    if current_user != @blog.user_id
+    if current_user.id != @blog.user_id
       flash[:notice] = "他のユーザーの投稿は編集できません"
       redirect_to blogs_path
     end
